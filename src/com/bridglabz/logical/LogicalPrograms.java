@@ -1,19 +1,20 @@
 package com.bridglabz.logical;
 
-import java.util.Scanner;
-
 public class LogicalPrograms {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a Number :");
-        int number = scanner.nextInt();
+    public static void main(String[] args)
+    {
+        char[] chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789".toCharArray();
+        int max=1000000000;
+        int random=(int) (Math.random()*max);
+        StringBuffer sbf=new StringBuffer();
 
-        int reverse = 0;
-        while (number != 0) {
-            int remainder = number % 10;
-            reverse = reverse * 10 + remainder;
-            number /= 10;
+        while (random>0)
+        {
+            sbf.append(chars[random % chars.length]);
+            random /= chars.length;
         }
-        System.out.println("Reverse of a number is " + reverse);
+
+        String couponCode=sbf.toString();
+        System.out.println("Coupon Code: "+couponCode);
     }
 }
